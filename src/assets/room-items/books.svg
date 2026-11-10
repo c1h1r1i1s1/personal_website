@@ -3,14 +3,14 @@
 
 <svg
    version="1.1"
-   id="svg55"
+   id="svg1658"
    width="1254"
    height="1254"
    viewBox="0 0 1254 1254"
-   sodipodi:docname="room.png"
+   sodipodi:docname="Room.png"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:dataloss="true"
-   inkscape:export-filename="SVGs/rope.svg"
+   inkscape:export-filename="../../../../../media/c1h1r1i1s1/Shared/Documents/Projects/Serverus/SVG2/headset.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -18,9 +18,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs59" />
+     id="defs1662" />
   <sodipodi:namedview
-     id="namedview57"
+     id="namedview1660"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -29,23 +29,23 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.91123171"
-     inkscape:cx="125.10539"
-     inkscape:cy="631.01404"
+     inkscape:zoom="10.30941"
+     inkscape:cx="727.63622"
+     inkscape:cy="661.82256"
      inkscape:window-width="2560"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <g
      inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="Items">
+     id="layer2"
+     inkscape:label="items">
     <path
        style="fill:#000000"
-       d="m 936.84489,411.20928 -0.1902,103.09022 170.80261,-0.19021 0.5706,-88.82496 h -12.9338 l -0.082,-8.25568 -14.5926,-0.13449 -13.3822,4.77454 -0.1345,-0.60522 -15.7358,-0.80697 -21.1828,7.59892 -0.067,6.45571 -7.33,2.55539 -13.1804,0.20174 -0.2017,-10.35604 -17.61875,0.20174 0.0672,-11.36475 -40.0772,0.60522 0.0673,-6.25397 -15.13058,0.13449 z"
+       d="m 940.45721,382.10136 v 109.58211 l 176.70279,-1.1432 0.807,-92.36687 h -16.61 l -12.508,4.64004 -13.7184,0.0673 -0.067,-10.55778 c 0,0 0.6052,-1.07595 -0.807,-1.1432 -1.4122,-0.0673 -16.1393,-0.26899 -16.1393,-0.26899 l -14.9961,5.37976 -4.9763,-0.94146 -15.0633,4.64005 -6.0522,4.64005 0.3362,-10.49054 -17.93865,-0.33624 -4.03482,2.42089 -7.86791,-0.26898 -2.42089,2.35364 h -4.77454 l 0.1345,-12.30621 -20.30861,0.20175 -0.20174,-4.7073 z"
        id="books"
-       inkscape:label="Books" />
+       inkscape:label="books" />
   </g>
 </svg>

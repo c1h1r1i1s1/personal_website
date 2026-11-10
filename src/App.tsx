@@ -5,10 +5,11 @@ import briefcaseSvg from './assets/room-items/briefcase.svg?raw'
 import frogSvg from './assets/room-items/frog.svg?raw'
 import guitarSvg from './assets/room-items/guitar.svg?raw'
 import headsetSvg from './assets/room-items/headset.svg?raw'
-import phoneSvg from './assets/room-items/phone.svg?raw'
 import recordBottomSvg from './assets/room-items/record-bottom.svg?raw'
 import recordTopSvg from './assets/room-items/record-top.svg?raw'
-import ropeSvg from './assets/room-items/rope.svg?raw'
+import ropeSvg from './assets/room-items/Rope.svg?raw'
+import solderingIronSvg from './assets/room-items/soldering-iron.svg?raw'
+import speakerSvg from './assets/room-items/speaker.svg?raw'
 import vinylPlayerSvg from './assets/room-items/vinyl-player.svg?raw'
 import roomImage from './assets/room.png'
 import albumMetadata from './data/albums.generated.json'
@@ -55,6 +56,7 @@ const sectionContent: Record<SectionId, PanelContent> = {
     items: [
       { title: 'Real-Time Diminished Reality System', text: 'A mixed-reality system combining object segmentation and video inpainting. Thesis work using a Meta Quest 3, ZED2i and YOLOv11m-seg.', tags: ['Python', 'PyTorch', 'CUDA', 'TensorRT'] },
       { title: 'Personal phone', text: 'Exploring a more minimalist phone through custom hardware and software.' },
+      { title: 'Custom speaker', text: 'A speaker I designed and built myself, documented as a hands-on engineering project.' },
       { title: 'Spotivinyl & ColourQuest', text: 'Personal software projects connecting music, physical media and playful interaction.' },
     ],
   },
@@ -81,7 +83,8 @@ const roomObjects: { id: string; label: string; svg: string; content: PanelConte
   { id: 'briefcase', label: 'Briefcase', svg: briefcaseSvg, content: { eyebrow: 'Experience / Searten', title: 'Scientific search at Searten', intro: 'I was part of the founding team at Searten, helping build a scientific search platform.', items: [{ title: 'My contribution', text: 'I worked on its central semantic and keyword search engine, including fine-tuning SciBERT models on a custom dataset.' }], tags: ['Python', 'PyTorch', 'SQL', 'React', 'AWS'] } },
   { id: 'frog', label: 'Frog figurine', svg: frogSvg, content: { eyebrow: 'Projects / ColourQuest', title: 'ColourQuest', intro: 'A small frog marks ColourQuest, a personal project exploring playful interaction.' } },
   { id: 'headset', label: 'VR headset', svg: headsetSvg, content: { eyebrow: 'Projects / Undergraduate thesis', title: 'Real-Time Diminished Reality System', intro: 'A system for removing selected objects from a mixed-reality environment in real time.', items: [{ title: 'System', text: 'The project combines a Meta Quest 3, ZED2i, YOLOv11m-seg and a video inpainting pipeline.' }, { title: 'Performance', text: 'The system achieved over 20 FPS at 720p and reduced inference time by 84%.' }], tags: ['Python', 'PyTorch', 'CUDA', 'TensorRT'] } },
-  { id: 'phone', label: 'Phone and electronics', svg: phoneSvg, content: { eyebrow: 'Projects / Hardware', title: 'A minimalist personal phone', intro: 'A personal hardware project exploring a simpler phone and a more intentional relationship with everyday technology.', items: [{ title: 'Project notes', text: 'The project story will cover the concept, hardware architecture, components, software, engineering challenges and progress.' }] } },
+  { id: 'soldering-iron', label: 'Soldering iron', svg: solderingIronSvg, content: { eyebrow: 'Projects / Hardware', title: 'A minimalist personal phone', intro: 'A personal hardware project exploring a simpler phone and a more intentional relationship with everyday technology.', items: [{ title: 'Project notes', text: 'The project story will cover the concept, hardware architecture, components, software, engineering challenges and progress.' }] } },
+  { id: 'speaker', label: 'Custom-built speaker', svg: speakerSvg, content: { eyebrow: 'Projects / Design and fabrication', title: 'Custom speaker', intro: 'A speaker that I designed and built myself. I’ll use this project page to share the design decisions and hands-on build process.' } },
   { id: 'rope', label: 'Climbing rope', svg: ropeSvg, content: { eyebrow: 'Interests / Climbing', title: 'Climbing', intro: 'A short introduction to my climbing experience and interests, with a link to my TheCrag profile to follow.' } },
   { id: 'books', label: 'Books', svg: booksSvg, content: { eyebrow: 'Interests / Reading', title: 'Books on the shelf', intro: 'A selection of books I have enjoyed.', items: [{ title: 'Recent reads', text: 'Stoner, Hyperion, Dune, 1984, There Is No Antimemetics Division and The Witcher.' }] } },
   { id: 'vinyl-player', label: 'Vinyl player', svg: vinylPlayerSvg, content: { eyebrow: 'Projects / Spotivinyl', title: 'Spotivinyl', intro: 'A personal software project exploring the connection between physical vinyl listening and digital music.', items: [{ title: 'The project', text: 'This project brings together a physical record collection and software-assisted music discovery.' }] } },
@@ -98,16 +101,61 @@ function getObjectPath(svg: string) {
 
 function getFrameGeometry(svg: string) {
   const path = getObjectPath(svg)
-  const values = path.match(/[-+]?(?:\d*\.)?\d+(?:e[-+]?\d+)?/gi)?.map(Number) ?? []
-  if (values.length < 8 || values.length % 2 !== 0) return null
-
+  const tokens = path.match(/[a-zA-Z]|[-+]?(?:\d*\.)?\d+(?:e[-+]?\d+)?/g) ?? []
   const points: { x: number; y: number }[] = []
-  for (let index = 0; index < values.length; index += 2) {
-    const previous = points.at(-1)
-    points.push(previous
-      ? { x: previous.x + values[index], y: previous.y + values[index + 1] }
-      : { x: values[index], y: values[index + 1] })
+  let command = ''
+  let x = 0
+  let y = 0
+  let firstMove = false
+  let index = 0
+
+  while (index < tokens.length) {
+    if (/^[a-zA-Z]$/.test(tokens[index])) {
+      command = tokens[index]
+      index += 1
+      if (command.toLowerCase() === 'z') break
+      firstMove = command.toLowerCase() === 'm'
+      continue
+    }
+
+    const relative = command === command.toLowerCase()
+    if (command.toLowerCase() === 'm' || command.toLowerCase() === 'l') {
+      const nextX = Number(tokens[index])
+      const nextY = Number(tokens[index + 1])
+      if (!Number.isFinite(nextX) || !Number.isFinite(nextY)) return null
+      x = relative ? x + nextX : nextX
+      y = relative ? y + nextY : nextY
+      points.push({ x, y })
+      index += 2
+      if (firstMove) {
+        command = relative ? 'l' : 'L'
+        firstMove = false
+      }
+      continue
+    }
+
+    if (command.toLowerCase() === 'h') {
+      const nextX = Number(tokens[index])
+      if (!Number.isFinite(nextX)) return null
+      x = relative ? x + nextX : nextX
+      points.push({ x, y })
+      index += 1
+      continue
+    }
+
+    if (command.toLowerCase() === 'v') {
+      const nextY = Number(tokens[index])
+      if (!Number.isFinite(nextY)) return null
+      y = relative ? y + nextY : nextY
+      points.push({ x, y })
+      index += 1
+      continue
+    }
+
+    return null
   }
+
+  if (points.length < 4) return null
 
   const xs = points.map(({ x }) => x)
   const ys = points.map(({ y }) => y)

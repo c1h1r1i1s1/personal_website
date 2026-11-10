@@ -54,7 +54,8 @@ The interactive object set from the Design Outline is:
 | `vinyl-player` | Spotivinyl and selected albums |
 | `climbing-rope` | Climbing and TheCrag profile |
 | `frog` | ColourQuest |
-| `dumb-phone` | Personal hardware project and technical documentation |
+| `soldering-iron` | Minimalist personal phone hardware project and technical documentation |
+| `speaker` | Custom speaker design and build |
 | `vr-headset` | Diminished Reality thesis, results, demo and links |
 | `books-vinyl-cabinet` | Reading and music collection |
 | `briefcase` | Searten professional experience |
