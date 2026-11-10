@@ -67,7 +67,7 @@ Keep the scene at a consistent viewBox so it can scale proportionally on desktop
 
 Store site content in local TypeScript or JSON data modules, separated by purpose where useful (sections, object entries, album list). Keep the data shape simple: title, concise description, optional section/category, media references, technology tags and labeled links. Stable IDs connect data to SVG objects. Do not embed content prose in SVG artwork.
 
-Store media in the project and reference it by local path. Use optimized SVG, responsive/compressed photographs and appropriately sized audio. Load nonessential galleries and the thesis demonstration only when their content is selected or opened. Prefer manually supplied album artwork or metadata and album URLs/URIs; do not build a Spotify API integration in the initial version.
+Store media in the project and reference it by local path. Use optimized SVG, responsive/compressed photographs and appropriately sized audio. Load nonessential galleries and the thesis demonstration only when their content is selected or opened. Album URIs are maintained in `src/data/albums.json`; the build-time oEmbed script resolves the title, hosted cover URL and player URL into generated metadata. Do not download or transform Spotify artwork. Load the Spotify iframe only after a cover is selected.
 
 Published client-side content is public. Do not add secrets, private data or credentials to source modules or public assets.
 

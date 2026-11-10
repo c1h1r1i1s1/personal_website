@@ -1,0 +1,22 @@
+[
+  {
+    "slot": "record-top",
+    "uri": "https://open.spotify.com/album/46wJAA9OE1xeHFhlTYQ2JF?si=xiWvi_MCR26VKQtKK0EvXw",
+    "albumUrl": "https://open.spotify.com/album/46wJAA9OE1xeHFhlTYQ2JF",
+    "embedUrl": "https://open.spotify.com/embed/album/46wJAA9OE1xeHFhlTYQ2JF?utm_source=generator",
+    "title": "Tamba Trio",
+    "coverUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02410d26d0b032d1a90b8a4772",
+    "coverWidth": 300,
+    "coverHeight": 300
+  },
+  {
+    "slot": "record-bottom",
+    "uri": "https://open.spotify.com/album/2bJalk1WMed8Z2CZca2zKp?si=jYXlqe8FQMWVbKGIxKWzyQ",
+    "albumUrl": "https://open.spotify.com/album/2bJalk1WMed8Z2CZca2zKp",
+    "embedUrl": "https://open.spotify.com/embed/album/2bJalk1WMed8Z2CZca2zKp?utm_source=generator",
+    "title": "Don't Look Back",
+    "coverUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0280aee3216dbae96c8d21c452",
+    "coverWidth": 300,
+    "coverHeight": 300
+  }
+]

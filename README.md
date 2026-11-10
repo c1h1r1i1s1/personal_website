@@ -1,32 +1,15 @@
-# React + TypeScript + Vite
+# Personal Archive
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Development
 
-Currently, two official plugins are available:
+Install dependencies with `npm install`, then start the local Vite server with `npm run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Spotify albums
 
-## React Compiler
+Edit [`src/data/albums.json`](src/data/albums.json) to set the Spotify album URI for `record-top` and/or `record-bottom`. `npm run build` automatically looks up the album title, cover image URL and embed URL using Spotify oEmbed, then builds the static site. The artwork is loaded directly from Spotify and is not downloaded or altered. If Spotify is temporarily unreachable, the script reuses matching cached metadata; adding a new URI requires network access for its first lookup.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Run `npm run sync:albums` to refresh generated metadata while developing. The build runs this command automatically.
 
-## Expanding the Oxlint configuration
+Click an album cover in the room to load its embedded Spotify album player in the information panel. The player is only loaded after an album is selected.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+See [Deployment](docs/deployment.md) for serving the static build through Caddy and the [Visual Style Guide](docs/styleguide.md) for interface conventions.

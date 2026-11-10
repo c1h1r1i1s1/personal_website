@@ -9,10 +9,10 @@
    viewBox="0 0 1254 1254"
    sodipodi:docname="room.png"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   inkscape:dataloss="true"
-   inkscape:export-filename="SVGs/vinyl-player.svg"
+   inkscape:export-filename="SVGs/record-top.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
+   inkscape:dataloss="true"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +29,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.91123171"
-     inkscape:cx="125.10539"
-     inkscape:cy="631.01404"
+     inkscape:zoom="3.6449268"
+     inkscape:cx="266.12331"
+     inkscape:cy="235.67003"
      inkscape:window-width="2560"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -41,10 +41,11 @@
   <g
      inkscape:groupmode="layer"
      id="layer1"
-     inkscape:label="Items">
+     inkscape:label="Items"
+     style="display:inline">
     <path
-       style="fill:#000000"
-       d="m 159.93335,353.2134 0.19021,148.73902 144.74474,0.7608 0.1902,-148.92921 z"
+       style="fill:#000000;stroke-width:0.915957"
+       d="m 165.44925,358.9195 0.17301,137.19567 131.65511,0.70175 0.173,-137.37109 z"
        id="record-bottom"
        inkscape:label="Vinyl Low" />
   </g>

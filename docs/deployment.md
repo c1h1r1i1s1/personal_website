@@ -9,7 +9,7 @@ Use a dedicated Caddy-readable directory such as `/srv/www/personal-website`. Ca
 ## Build and publish
 
 1. On a development machine, install Node.js LTS and npm, then install project dependencies with `npm install`.
-2. Build the site with `npm run build`. Vite writes the production site to `dist/` by default.
+2. Build the site with `npm run build`. This refreshes configured album metadata from Spotify oEmbed before Vite writes the production site to `dist/`. A first lookup for each URI requires network access; matching cached metadata is reused if Spotify is temporarily unreachable.
 3. Copy the **contents** of `dist/` to the configured server site root, for example `/srv/www/personal-website/`. Preserve directory structure and remove obsolete files from the destination when publishing a new build.
 4. Confirm Caddy can read/traverse the directory and its files. Reload Caddy only if its configuration changed; replacing static assets does not require restarting the server.
 5. Open the public hostname and check the landing page, representative scene interactions, links and media.

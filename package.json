@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run sync:albums && tsc -b && vite build",
+    "sync:albums": "node scripts/sync-albums.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

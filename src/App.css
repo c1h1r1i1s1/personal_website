@@ -49,13 +49,16 @@ h1 { max-width: 520px; margin: 24px 0 20px; color: var(--ink); font: 400 clamp(3
 .room-hotspot:focus-within .hotspot-outline { stroke: #fff; }
 .room-hotspot.is-selected .hotspot-outline { stroke: #fff; }
 .panel-tags { margin-top: 20px; }
+.album-player { margin-top: 25px; }
+.album-player iframe { display: block; width: 100%; min-width: 280px; border: 0; border-radius: 2px; }
+.album-player a { display: inline-block; margin-top: 10px; color: var(--olive-grey); font: 10px/1.5 var(--mono); text-transform: uppercase; text-decoration-color: var(--stone); text-underline-offset: 3px; }
 .scene-index, .scene-caption { color: var(--olive-grey); font-size: 9px; }
 .site-footer { min-height: 54px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; color: var(--olive-grey); font-size: 9px; }
 @keyframes appear { from { opacity: .5; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes trace-around { to { stroke-dashoffset: -1000; } }
 @media (max-width: 1100px) {
   .site-shell { width: min(100% - 56px, 900px); }
-  .page-layout { grid-template-columns: 130px minmax(230px, .9fr) minmax(300px, 1.2fr); gap: 28px; }
+  .page-layout { grid-template-columns: 130px minmax(280px, .9fr) minmax(300px, 1.2fr); gap: 28px; }
   .scene-mat { padding: 10px; }
 }
 @media (max-width: 760px) {
