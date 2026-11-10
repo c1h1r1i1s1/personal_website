@@ -1,24 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
-  color: #383932;
-  background: #f5f3ed;
+  --paper: #F3F0E8;
+  --ink: #292B28;
+  --stone: #D8D1C3;
+  --sage: #A2A18B;
+  --timber: #98785F;
+  --olive-grey: #77796F;
+  --line: var(--stone);
+  --accent: var(--sage);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --paper: #f5f3ed;
-  --ink: #383932;
-  --muted: #85847a;
-  --line: #d9d6cc;
-  --accent: #78836e;
-  --serif: 'Newsreader', Georgia, serif;
-  --mono: 'DM Mono', monospace;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * { box-sizing: border-box; }
 html { min-width: 320px; }
 body { margin: 0; min-width: 320px; min-height: 100vh; }
 button, a { font: inherit; }
-button:focus-visible, a:focus-visible { outline: 2px solid #78836e; outline-offset: 4px; }
-::selection { color: #25271f; background: #d9dfce; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--timber); outline-offset: 4px; }
+::selection { color: var(--ink); background: var(--stone); }
