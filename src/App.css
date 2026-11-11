@@ -1,4 +1,6 @@
 #root { min-height: 100vh; }
+.site-shell { opacity: 0; transition: opacity .55s ease; }
+.site-shell.is-ready { opacity: 1; }
 .site-shell { width: min(100% - 96px, 1600px); height: 100svh; min-height: 0; margin: 0 auto; display: flex; flex-direction: column; overflow: hidden; }
 .site-header { min-height: 84px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
 .wordmark { display: inline-flex; flex-direction: column; gap: 3px; border: 0; padding: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }

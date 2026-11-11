@@ -70,6 +70,8 @@ const media = {
   portrait,
 }
 
+const startupImages = [roomImage, ...Object.values(media).filter((value): value is string => typeof value === 'string' && /\.(?:avif|gif|jpe?g|png|webp)(?:$|\?)/i.test(value)), ...((albumMetadata as AlbumMetadata[]).map((album) => album.coverUrl))]
+
 const seartenBullets = [
   'Designed and deployed a hybrid scientific search platform combining semantic AI models with keyword-based retrieval, helping researchers discover scientific instruments, techniques and literature.',
   'Built and trained custom PyTorch models, developed Python and SQL backend services alongside a React frontend, and deployed infrastructure using AWS SageMaker, EC2, S3 and RDS.',
@@ -346,6 +348,7 @@ function RoomImage({ selectedId, selectedAlbumSlot, highlightedObjects, activeSe
 }
 
 function App() {
+  const [imagesReady, setImagesReady] = useState(false)
   const [activeSection, setActiveSection] = useState<SectionId>('about')
   const [selectedObject, setSelectedObject] = useState<string | null>(null)
   const [selectedAlbumSlot, setSelectedAlbumSlot] = useState<AlbumMetadata['slot'] | null>(null)
@@ -355,6 +358,29 @@ function App() {
   const content = selectedAlbum
     ? { eyebrow: 'Listening / Spotify', title: selectedAlbum.title, intro: 'Something I\'ve been enjoying recently.' }
     : objectContent ?? sectionContent[activeSection]
+
+  useEffect(() => {
+    let cancelled = false
+    const preload = (src: string) => new Promise<void>((resolve) => {
+      const image = new Image()
+      image.onload = () => resolve()
+      image.onerror = () => resolve()
+      image.src = src
+      if (image.complete) resolve()
+    })
+    void Promise.all([Promise.all(startupImages.map(preload)), document.fonts.ready]).then(() => {
+      if (!cancelled) setImagesReady(true)
+    })
+    return () => { cancelled = true }
+  }, [])
+
+  useEffect(() => {
+    if (!imagesReady) return
+    const loader = document.getElementById('startup-screen')
+    if (!loader) return
+    const timer = window.setTimeout(() => loader.classList.add('is-hidden'), 250)
+    return () => window.clearTimeout(timer)
+  }, [imagesReady])
 
   useEffect(() => {
     if (selectedObject !== 'guitar' || !audioRef.current) return
@@ -374,7 +400,8 @@ function App() {
   }
 
   return (
-    <main className="site-shell">
+    <>
+    <main className={`site-shell ${imagesReady ? 'is-ready' : ''}`}>
       <header className="site-header">
         <button className="wordmark" type="button" onClick={() => selectSection('about')} aria-label="CF. Personal Archive home">
           <span className="wordmark-mark">CF.</span>
@@ -434,6 +461,7 @@ function App() {
       </div>
       <footer className="site-footer"><span>CF. Personal Archive</span></footer>
     </main>
+    </>
   )
 }
 

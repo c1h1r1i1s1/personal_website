@@ -6,8 +6,23 @@
     <meta name="theme-color" content="#f5f3ed" />
     <meta name="description" content="CF. Personal Archive | a collection of engineering, creative work and other interests." />
     <title>Christian Fane</title>
+    <style>
+      #startup-screen { position: fixed; z-index: 9999; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #F3F0E8; color: #292B28; opacity: 1; transition: opacity 450ms ease, visibility 450ms ease; }
+      #startup-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+      #startup-screen-mark { font: 500 42px/1 Georgia, 'Times New Roman', serif; letter-spacing: -.05em; }
+      #startup-screen-label { color: #77796F; font: 9px/1.5 system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+      #startup-screen-indicator { width: 34px; height: 1px; margin-top: 19px; overflow: hidden; background: #D8D1C3; }
+      #startup-screen-indicator::after { content: ''; display: block; width: 50%; height: 100%; background: #98785F; animation: startup-load 1s ease-in-out infinite alternate; }
+      @keyframes startup-load { from { transform: translateX(-100%); } to { transform: translateX(200%); } }
+      @media (prefers-reduced-motion: reduce) { #startup-screen, #startup-screen-indicator::after { transition-duration: .01ms; animation-duration: .01ms; } }
+    </style>
   </head>
   <body>
+    <div id="startup-screen" role="status" aria-label="Loading Christian Fane's personal archive">
+      <div id="startup-screen-mark" aria-hidden="true">CF.</div>
+      <span id="startup-screen-label">Personal Archive</span>
+      <span id="startup-screen-indicator" aria-hidden="true"></span>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
