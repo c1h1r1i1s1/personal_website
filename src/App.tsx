@@ -27,7 +27,7 @@ type SectionId = (typeof sections)[number]['id']
 type LinkItem = { label: string; href: string }
 type ImageItem = { src: string; alt: string }
 type ContentItem = { title: string; subtitle?: string; text?: string; date?: string; bullets?: string[]; tags?: string[]; links?: LinkItem[]; image?: ImageItem; images?: ImageItem[]; audio?: { src: string; label: string } }
-type PanelContent = { eyebrow: string; title: string; intro: string; items?: ContentItem[]; tags?: string[]; links?: LinkItem[]; images?: ImageItem[]; books?: { title: string; author: string; description: string }[]; abstract?: string }
+type PanelContent = { eyebrow: string; title: string; intro?: string; items?: ContentItem[]; tags?: string[]; links?: LinkItem[]; images?: ImageItem[]; books?: { title: string; author: string; description: string }[]; abstract?: string }
 type AlbumMetadata = { slot: 'record-top' | 'record-bottom'; uri: string; albumUrl: string; embedUrl: string; title: string; coverUrl: string }
 
 const albums = albumMetadata as AlbumMetadata[]
