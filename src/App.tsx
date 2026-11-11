@@ -12,6 +12,24 @@ import solderingIronSvg from './assets/room-items/soldering-iron.svg?raw'
 import speakerSvg from './assets/room-items/speaker.svg?raw'
 import vinylPlayerSvg from './assets/room-items/vinyl-player.svg?raw'
 import roomImage from './assets/room.png'
+import climbHang from './assets/photos/climbing-hang.jpg'
+import climbJoe from './assets/photos/climbing-joe.png'
+import climbSpire from './assets/photos/climbing-spire.jpg'
+import hikeArthurs from './assets/photos/hike-arthurs.jpg'
+import hikeFaroe1 from './assets/photos/hike-faroe1.jpg'
+import hikeFaroe2 from './assets/photos/hike-faroe2.jpg'
+import hikeKungsleden from './assets/photos/hike-kungsleden.jpg'
+import hikeNz from './assets/photos/hike-nz.jpg'
+import frogRender from './assets/photos/frog-render.png'
+import frogPhoto from './assets/photos/frog.png'
+import speakerRender from './assets/photos/speaker-render.jpeg'
+import speakerSketch from './assets/photos/speaker-sketch.png'
+import spotivinyl from './assets/photos/spotivinyl.jpg'
+import thesisDemo from './assets/photos/thesis-demo.gif'
+import thesisProcess from './assets/photos/thesis-process.png'
+import faroeAudio from './assets/faroe.mp3'
+import resume from './assets/resume.pdf'
+import portrait from './assets/photos/me.jpg'
 import albumMetadata from './data/albums.generated.json'
 import './App.css'
 
@@ -31,26 +49,25 @@ type PanelContent = { eyebrow: string; title: string; intro?: string; items?: Co
 type AlbumMetadata = { slot: 'record-top' | 'record-bottom'; uri: string; albumUrl: string; embedUrl: string; title: string; coverUrl: string }
 
 const albums = albumMetadata as AlbumMetadata[]
-const asset = (path: string) => new URL(path, import.meta.url).href
 const media = {
-  climbHang: asset('./assets/photos/climbing-hang.jpg'),
-  climbJoe: asset('./assets/photos/climbing-joe.png'),
-  climbSpire: asset('./assets/photos/climbing-spire.jpg'),
-  hikeArthurs: asset('./assets/photos/hike-arthurs.jpg'),
-  hikeFaroe1: asset('./assets/photos/hike-faroe1.jpg'),
-  hikeFaroe2: asset('./assets/photos/hike-faroe2.jpg'),
-  hikeKungsleden: asset('./assets/photos/hike-kungsleden.jpg'),
-  hikeNz: asset('./assets/photos/hike-nz.jpg'),
-  frogRender: asset('./assets/photos/frog-render.png'),
-  frog: asset('./assets/photos/frog.png'),
-  speakerRender: asset('./assets/photos/speaker-render.jpeg'),
-  speakerSketch: asset('./assets/photos/speaker-sketch.png'),
-  spotivinyl: asset('./assets/photos/spotivinyl.jpg'),
-  thesisDemo: asset('./assets/photos/thesis-demo.gif'),
-  thesisProcess: asset('./assets/photos/thesis-process.png'),
-  faroeAudio: asset('./assets/faroe.mp3'),
-  resume: asset('./assets/resume.pdf'),
-  portrait: asset('./assets/photos/me.jpg'),
+  climbHang,
+  climbJoe,
+  climbSpire,
+  hikeArthurs,
+  hikeFaroe1,
+  hikeFaroe2,
+  hikeKungsleden,
+  hikeNz,
+  frogRender,
+  frog: frogPhoto,
+  speakerRender,
+  speakerSketch,
+  spotivinyl,
+  thesisDemo,
+  thesisProcess,
+  faroeAudio,
+  resume,
+  portrait,
 }
 
 const seartenBullets = [
