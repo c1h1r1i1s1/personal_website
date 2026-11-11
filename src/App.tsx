@@ -101,7 +101,7 @@ const sectionContent: Record<SectionId, PanelContent> = {
     title: 'Relevant Experience',
     intro: 'Selected professional, research and infrastructure experience.',
     items: [
-      { title: 'Founding Team Member', subtitle: 'Searten', date: 'July 2023 – August 2025', links: [{ label: 'Searten', href: 'https://www.searten.com/' }], bullets: seartenBullets, tags: ['PyTorch', 'Python', 'AWS SageMaker', 'Model fine-tuning', 'Dataset curation', 'Vector search', 'Data modelling', 'React', 'SQL', 'EC2', 'S3', 'RDS', 'Lambda', 'Networking'] },
+      { title: 'Founding Team Member', subtitle: 'Searten', date: 'July 2023 – August 2025', links: [{ label: 'searten.com', href: 'https://www.searten.com/' }], bullets: seartenBullets, tags: ['PyTorch', 'Python', 'AWS SageMaker', 'Model fine-tuning', 'Dataset curation', 'Vector search', 'Data modelling', 'React', 'SQL', 'EC2', 'S3', 'RDS', 'Lambda', 'Networking'] },
       { title: 'Real-Time Diminished Reality', subtitle: 'Research Thesis', date: 'July 2024 – June 2025', links: [{ label: 'arXiv:2509.10466', href: 'https://arxiv.org/abs/2509.10466' }], bullets: thesisBullets, tags: ['PyTorch', 'TensorFlow', 'Python', 'C++', 'C#', 'AWS SageMaker', 'Unity', 'Model optimisation', 'Custom model training', 'Dataset curation', 'Inpainting', 'Object detection'] },
       { title: 'Infrastructure Automation Project', subtitle: 'Ansible & Linux', date: 'February 2026', bullets: ['Developed an Ansible playbook to automate Linux server provisioning, configuration management and repeatable service deployment.', 'Automated system configuration, access controls, networking, persistent storage and containerised applications with Ansible modules, variables, loops and task-level verification.', 'Deployed self-hosted services using Docker Compose, systemd, Samba and Caddy, integrating Cloudflare DNS and automated HTTPS.'], tags: ['Docker', 'Linux', 'Ansible', 'TypeScript', 'Cloudflare', 'Networking'] },
     ],
@@ -395,7 +395,6 @@ function App() {
               </li>
             ))}
           </ul>
-          <p className="nav-footer">Choose a section<br />or select an object.</p>
         </nav>
 
         <section className="content-panel" aria-live="polite" aria-atomic="true">
@@ -433,7 +432,7 @@ function App() {
           <div className="scene-mat"><RoomImage selectedId={selectedObject} selectedAlbumSlot={selectedAlbumSlot} highlightedObjects={relatedObjects[activeSection]} activeSection={activeSection} onSelect={selectObject} onSelectAlbum={(slot) => { setSelectedObject(null); setSelectedAlbumSlot(slot) }} /></div>
         </section>
       </div>
-      <footer className="site-footer"><span>CF. Personal Archive</span><span>Made slowly, with curiosity.</span></footer>
+      <footer className="site-footer"><span>CF. Personal Archive</span></footer>
     </main>
   )
 }
